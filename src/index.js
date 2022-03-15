@@ -9,7 +9,7 @@ function Counter() {
   React.useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${state}`)
       .then((data) => data.json())
-      .then((res) => setPokemon((_) => res.name));
+      .then((res) => setPokemon((_) => res));
   }, [state]);
 
   return (
@@ -24,8 +24,14 @@ function Counter() {
         <button onClick={() => setState((count) => count - 1)}>
           Decrement
         </button>
-        <pre>{pokemon}</pre>
       </div>
+      <p>
+        <strong>Name:</strong> {pokemon.name}
+      </p>
+      <img
+        src={pokemon.sprites?.other.home.front_default || ""}
+        alt="Pokemon"
+      />
     </div>
   );
 }

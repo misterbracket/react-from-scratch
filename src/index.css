@@ -49,3 +49,9 @@ img {
   width: 200px;
   height: auto;
 }
+
+.loading {
+  height: 200px;
+  display: flex;
+  place-items: center;
+}
